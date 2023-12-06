@@ -196,8 +196,8 @@ def run_all_regressors_with_transformers(X_train, y_train, X_test, y_test):
             transformed_X_train = pd.DataFrame(X_transformer.fit_transform(X_train), columns = X_train.columns)
             transformed_X_test = pd.DataFrame(X_transformer.transform(X_test), columns = X_test.columns)
 
-            transformed_y_train = pd.DataFrame(y_transformer.fit_transform(y_train), columns = y_train.columns)
-            transformed_y_test = pd.DataFrame(y_transformer.transform(y_test), columns = y_test.columns)
+            transformed_y_train = pd.DataFrame(y_train, columns = y_train.columns)
+            transformed_y_test = pd.DataFrame(y_test, columns = y_test.columns)
             pipe = Pipeline(steps=[
                                 ("classifier", model()),
                             ]
